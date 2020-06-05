@@ -38,6 +38,7 @@ Requirements for Consideration
     - Integration
         - Selenium
 - Users
+- Linters and formatters
 
 Plan
 ====
@@ -48,3 +49,7 @@ Plan
 - Use SCSS for styling
 - Use django migrations
     - Makes testing django easier as it will set up a fresh database for us
+
+Todo
+====
+- Pin npm packages
