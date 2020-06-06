@@ -10,6 +10,7 @@ cd backend
 black --check likes
 flake8 likes
 mypy likes
+python manage.py test
 
 deactivate
 

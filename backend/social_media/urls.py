@@ -16,9 +16,10 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 
-from likes.views import TestView
+from likes.views import PostView, LikeView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('test', TestView.as_view()),
+    path("post", PostView.as_view()),
+    path("like", LikeView.as_view()),
 ]
