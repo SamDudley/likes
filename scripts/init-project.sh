@@ -13,3 +13,8 @@ deactivate
 cd ../frontend
 
 npm install
+
+# Setup git hooks.
+cd ..
+
+git config core.hooksPath .githooks

@@ -7,11 +7,11 @@ class BaseView(View):
         response = super().dispatch(req, *args, **kwargs)
 
         # Basic CORS to get us going.
-        response['Access-Control-Allow-Origin'] = '*'
+        response["Access-Control-Allow-Origin"] = "*"
 
         return response
 
 
 class TestView(BaseView):
     def get(self, req: HttpRequest) -> JsonResponse:
-        return JsonResponse({'message': 'Hello World!'})
+        return JsonResponse({"message": "Hello World!"})

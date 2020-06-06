@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+# Backend checks.
+cd backend
+
+. venv/bin/activate
+
+black --check likes
+flake8 likes
+mypy likes
+
+deactivate
