@@ -1,5 +1,6 @@
 import json
 
+from django.db import IntegrityError
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.views import View
 from django.utils.decorators import method_decorator
@@ -25,6 +26,9 @@ class PostView(BaseView):
     def get(self, req: HttpRequest) -> JsonResponse:
         post = Post.objects.first()
 
+        if not post:
+            return HttpResponse(status=500)
+
         return JsonResponse(
             {"id": post.id, "content": post.content, "likes": post.likes.count()}
         )
@@ -35,6 +39,9 @@ class LikeView(BaseView):
     def post(self, req: HttpRequest) -> HttpResponse:
         post_id = req.json["post_id"]
 
-        Like.objects.create(post_id=post_id)
+        try:
+            Like.objects.create(post_id=post_id)
+        except IntegrityError:
+            return HttpResponse(status=500)
 
         return HttpResponse(status=200)

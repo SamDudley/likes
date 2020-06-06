@@ -1,6 +1,10 @@
 export const getPost = async () => {
     const response = await fetch('http://localhost:8000/post');
 
+    if (!response.ok) {
+        throw new Error('Server error');
+    }
+
     return response.json();
 };
 
@@ -13,6 +17,10 @@ export const postLike = async ({ post_id }) => {
         },
         body: JSON.stringify({ post_id }),
     });
+
+    if (!response.ok) {
+        throw new Error('Server error');
+    }
 
     return response;
 };
