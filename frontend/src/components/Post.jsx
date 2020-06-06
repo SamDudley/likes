@@ -26,8 +26,8 @@ const Post = () => {
     }
 
     return (
-        <div className="post">
-            <div className="content">{post.content}</div>
+        <div className="max-w-sm bg-white p-3 rounded shadow-lg">
+            <div className="mb-2">{post.content}</div>
             <Like likes={post.likes} addLike={addLike}></Like>
         </div>
     );

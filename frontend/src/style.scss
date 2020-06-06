@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Apply a natural box layout model to all elements, but allowing components to change.
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+#app {
+    background-color: #084c61;
+}

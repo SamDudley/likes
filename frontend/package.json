@@ -7,7 +7,8 @@
     "dependencies": {
         "eslint-config-prettier": "^6.11.0",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "tailwindcss": "^1.4.6"
     },
     "devDependencies": {
         "@babel/core": "^7.10.2",
@@ -17,13 +18,14 @@
         "eslint": "^7.2.0",
         "eslint-plugin-react": "^7.20.0",
         "parcel": "^1.12.4",
-        "prettier": "^2.0.5"
+        "prettier": "^2.0.5",
+        "sass": "^1.26.8"
     },
     "scripts": {
         "dev": "parcel index.html",
         "prettier:write": "prettier --write \"src/**/*.(js|jsx)\"",
         "prettier:check": "prettier --check \"src/**/*.(js|jsx)\"",
-        "eslint": "eslint \"src/**\"",
+        "eslint": "eslint --ext .jsx --ext .js src/",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "babel": {
