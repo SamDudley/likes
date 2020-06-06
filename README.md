@@ -53,3 +53,4 @@ Plan
 Todo
 ====
 - Pin npm packages
+- Pin pip packages
