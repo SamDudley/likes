@@ -1,3 +1,12 @@
+# Setup Project
+1. `./scripts/init-project.sh`
+
+# Run Project
+1. Open 2 terminals at the project root
+2. `./scripts/run-backend.sh`
+3. `./scripts/run-frontend.sh`
+4. Navigate to http://localhost:1234 in your favourite browser
+
 Story
 =====
 
