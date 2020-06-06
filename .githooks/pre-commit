@@ -12,3 +12,9 @@ flake8 likes
 mypy likes
 
 deactivate
+
+# Frontend checks.
+cd ../frontend
+
+npm run prettier:check
+npm run eslint

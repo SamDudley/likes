@@ -4,15 +4,27 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "eslint-config-prettier": "^6.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "eslint": "^7.2.0",
+    "eslint-plugin-react": "^7.20.0",
+    "parcel": "^1.12.4",
+    "prettier": "^2.0.5"
   },
   "scripts": {
     "dev": "parcel index.html",
+    "prettier:write": "prettier --write \"src/**/*.(js|jsx)\"",
+    "prettier:check": "prettier --check \"src/**/*.(js|jsx)\"",
+    "eslint": "eslint \"src/**\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sam Dudley"
+  "author": "Sam Dudley",
+  "prettier": {
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
 }

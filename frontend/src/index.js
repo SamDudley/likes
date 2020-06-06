@@ -8,12 +8,12 @@ const App = () => {
         fetch('http://localhost:8000/test')
             .then((response) => response.json())
             .then((json) => setMessage(json.message || 'No message'))
-            .catch(() => setMessage('Error occured whilst fetching the message'))
-    }, [])
+            .catch(() =>
+                setMessage('Error occured whilst fetching the message'),
+            );
+    }, []);
 
-    return (
-        <h1>{message}</h1>
-    );
-}
+    return <h1>{message}</h1>;
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));
