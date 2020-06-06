@@ -1,30 +1,43 @@
 {
-  "name": "likes",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "eslint-config-prettier": "^6.11.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "eslint": "^7.2.0",
-    "eslint-plugin-react": "^7.20.0",
-    "parcel": "^1.12.4",
-    "prettier": "^2.0.5"
-  },
-  "scripts": {
-    "dev": "parcel index.html",
-    "prettier:write": "prettier --write \"src/**/*.(js|jsx)\"",
-    "prettier:check": "prettier --check \"src/**/*.(js|jsx)\"",
-    "eslint": "eslint \"src/**\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Sam Dudley",
-  "prettier": {
-    "tabWidth": 4,
-    "singleQuote": true,
-    "trailingComma": "all"
-  }
+    "author": "Sam Dudley",
+    "name": "likes",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "eslint-config-prettier": "^6.11.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.10.2",
+        "@babel/plugin-transform-runtime": "^7.10.1",
+        "@babel/preset-env": "^7.10.2",
+        "@babel/preset-react": "^7.10.1",
+        "eslint": "^7.2.0",
+        "eslint-plugin-react": "^7.20.0",
+        "parcel": "^1.12.4",
+        "prettier": "^2.0.5"
+    },
+    "scripts": {
+        "dev": "parcel index.html",
+        "prettier:write": "prettier --write \"src/**/*.(js|jsx)\"",
+        "prettier:check": "prettier --check \"src/**/*.(js|jsx)\"",
+        "eslint": "eslint \"src/**\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            "@babel/plugin-transform-runtime"
+        ]
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "trailingComma": "all"
+    }
 }

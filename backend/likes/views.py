@@ -2,6 +2,8 @@ import json
 
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.views import View
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 from likes.models import Post, Like
 
@@ -13,7 +15,8 @@ class BaseView(View):
         response = super().dispatch(req, *args, **kwargs)
 
         # Basic CORS to get us going.
-        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Origin"] = req.headers.get("Origin", "")
+        response["Access-Control-Allow-Headers"] = "Content-Type"
 
         return response
 
@@ -27,6 +30,7 @@ class PostView(BaseView):
         )
 
 
+@method_decorator(csrf_exempt, name="dispatch")
 class LikeView(BaseView):
     def post(self, req: HttpRequest) -> HttpResponse:
         post_id = req.json["post_id"]
