@@ -1,3 +1,5 @@
+![](demo.gif)
+
 # Setup Project
 
 1. `git clone git@github.com:SamDudley/likes.git`
