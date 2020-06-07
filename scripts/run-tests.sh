@@ -4,4 +4,6 @@ cd backend
 
 . venv/bin/activate
 
-python manage.py runserver
+python manage.py test
+
+deactivate
