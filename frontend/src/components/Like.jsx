@@ -1,6 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Callback to add a like against a post.
+ * @callback addLike
+ */
+
+/**
+ * Like component.
+ * @param {Object} props - Like component props.
+ * @param {number} props.likes - Number of likes.
+ * @param {addLike} props.addLike - Callback triggered on like button click.
+ */
 const Like = ({ likes, addLike }) => {
     return (
         <div className="like">

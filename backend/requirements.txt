@@ -1,4 +1,4 @@
-black
-django
-flake8
-mypy
+black==19.10b0
+Django==3.0.7
+flake8==3.8.2
+mypy==0.780
