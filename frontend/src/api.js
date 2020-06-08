@@ -39,5 +39,5 @@ export const postLike = async ({ post_id }) => {
         throw new Error('Server error');
     }
 
-    return response;
+    return response.json();
 };

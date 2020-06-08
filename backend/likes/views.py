@@ -81,8 +81,10 @@ class LikeView(BaseView):
             return HttpResponse(status=500)
 
         try:
-            Like.objects.create(post_id=post_id)
-        except IntegrityError:
+            post = Post.objects.get(pk=post_id)
+        except Post.DoesNotExist:
             return HttpResponse(status=500)
 
-        return HttpResponse(status=200)
+        post.likes.create(post_id=post_id)
+
+        return JsonResponse({"post_id": post_id, "likes": post.likes.count()})

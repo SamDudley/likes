@@ -18,11 +18,16 @@ const Post = () => {
         // Temporarily store the previous like count incase of a server error.
         const prevLikes = post.likes;
 
+        // Create a variable for the new likes count.
+        const likes = prevLikes + 1;
+
         // Increment the like count.
-        setPost({ ...post, likes: post.likes + 1 });
+        setPost({ ...post, likes });
 
         // Tell the server we would are adding a like to this post.
         postLike({ post_id: post.id })
+            // The server will return the updated like count.
+            .then((response) => setPost({ ...post, likes: response.likes }))
             // Catch server errors and rollback to the previous like count.
             .catch(() => setPost({ ...post, likes: prevLikes }));
     };

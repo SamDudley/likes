@@ -35,18 +35,19 @@ class LikeTestCase(TestCase):
             "/like", {"post_id": 1}, content_type="application/json"
         )
 
-        self.assertEqual(post_like_response.status_code, 200)
+        self.assertEqual(post_like_response.json(), {"post_id": 1, "likes": 1})
 
         get_post_response = c.get("/post")
 
-        expected = {
-            "id": 1,
-            "content": "This is the first post and it's wonderful.",
-            # We now have 1 like on the post.
-            "likes": 1,
-        }
-
-        self.assertEqual(get_post_response.json(), expected)
+        self.assertEqual(
+            get_post_response.json(),
+            {
+                "id": 1,
+                "content": "This is the first post and it's wonderful.",
+                # We now have 1 like on the post.
+                "likes": 1,
+            },
+        )
 
     def test_post_failure_no_post_id(self):
         c = Client()
