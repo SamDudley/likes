@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  * @param {number} props.likes - Number of likes.
  * @param {addLike} props.addLike - Callback triggered on like button click.
  */
-const Like = ({ likes, addLike }) => {
+const Like = ({ likes, newLikes, addLike }) => {
     return (
         <div className="like">
             <button
@@ -22,12 +22,18 @@ const Like = ({ likes, addLike }) => {
                 Like
             </button>
             <span className="ml-2">{likes}</span>
+            {!!newLikes && (
+                <span className="ml-2 text-sm text-gray-700">{`${
+                    newLikes > 0 ? '+' : '-'
+                }${newLikes} new likes`}</span>
+            )}
         </div>
     );
 };
 
 Like.propTypes = {
     likes: PropTypes.number.isRequired,
+    newLikes: PropTypes.number.isRequired,
     addLike: PropTypes.func.isRequired,
 };
 

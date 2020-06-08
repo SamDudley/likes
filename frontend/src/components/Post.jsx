@@ -9,6 +9,7 @@ import Like from './Like';
  */
 const Post = () => {
     const [post, setPost] = useState(null);
+    const [newLikes, setNewLikes] = useState(0);
 
     useEffect(() => {
         getPost().then((post) => setPost(post));
@@ -27,7 +28,10 @@ const Post = () => {
         // Tell the server we would are adding a like to this post.
         postLike({ post_id: post.id })
             // The server will return the updated like count.
-            .then((response) => setPost({ ...post, likes: response.likes }))
+            .then((response) => {
+                setPost({ ...post, likes: response.likes });
+                setNewLikes(response.likes - likes);
+            })
             // Catch server errors and rollback to the previous like count.
             .catch(() => setPost({ ...post, likes: prevLikes }));
     };
@@ -39,7 +43,11 @@ const Post = () => {
     return (
         <div className="max-w-sm bg-white p-3 rounded shadow-lg">
             <div className="mb-2">{post.content}</div>
-            <Like likes={post.likes} addLike={addLike}></Like>
+            <Like
+                likes={post.likes}
+                newLikes={newLikes}
+                addLike={addLike}
+            ></Like>
         </div>
     );
 };
